@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: festivapp-backend
-    env: docker
-    dockerfilePath: ./Dockerfile
-    buildCommand: mvn clean package
-    startCommand: java -jar target/festivapp-backend-0.0.1-SNAPSHOT.jar
