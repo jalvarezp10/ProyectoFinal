@@ -1,0 +1,21 @@
+/* src/app/pages/user-dashboard/user-dashboard.component.css */
+.dashboard-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .dashboard-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-container p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-container .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+  

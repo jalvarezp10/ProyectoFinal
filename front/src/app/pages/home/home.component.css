@@ -1,0 +1,67 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .home-container {
+    
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .content {
+    background: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+  }
+  
+  p {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre botones */
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    background-color: #ff3366; /* Rojo similar al de la imagen */
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #ff6699; /* Más claro al pasar el ratón */
+  }
+  
+  .navbar-nav .nav-item {
+    padding-left: 30px;
+    margin-right: 100px; /* Espaciado entre las opciones del menú */
+  }
+  
+  .navbar .btn {
+    margin-left: auto; /* Mueve el botón de cerrar sesión al final */
+    height: 30px;
+  }
+  
+  .navbar{
+    height: 50px;
+  }

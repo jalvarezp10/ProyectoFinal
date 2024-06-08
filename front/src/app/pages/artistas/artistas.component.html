@@ -1,0 +1,59 @@
+<div class="container mt-5">
+    <div class="row">
+      <div *ngFor="let artista of artistas" class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ artista.nombre }}</h5>
+            <p class="card-text">{{ artista.genero_musical}}</p>
+            <a [routerLink]="['/artistas', artista.id_artista]" class="btn btn-primary">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+     <ng-container *ngIf="loginservice.userData | async as user">
+          
+      <button *ngIf="user.rol === 'admin'" class="btn btn-primary" (click)="crearArtista()">Crear Artista</button>
+    </ng-container>
+    <!-- <ng-container *ngIf="loginService.userData | async as user">
+      <button *ngIf="user.rol === 'admin' && !isCreating" class="btn btn-primary" (click)="crearArtista()">Crear Festival</button>
+    </ng-container>
+
+    <div *ngIf="isCreating" class="create-festival-form">
+      <form (ngSubmit)="submitArtista()" #createFestivalForm="ngForm">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input type="text" id="nombre"class="form-control" required [(ngModel)]="newArtista.nombre" name="nombre" #nombre="ngModel">
+        </div>
+        <div class="mb-3">
+          <label for="fecha_inicio" class="form-label">Fecha de Inicio:</label>
+          <input type="date" id="fecha_inicio"class="form-control" required [(ngModel)]="newFestival.fecha_inicio" name="fecha_inicio" #fecha_inicio="ngModel">
+        </div>
+        <div class="mb-3">
+          <label for="fecha_finalizacion" class="form-label">Fecha de Fin:</label>
+          <input type="date" id="fecha_finalizacion"class="form-control" required [(ngModel)]="newFestival.fecha_finalizacion" name="fecha_finalizacion" #fecha_finalizacion="ngModel">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="ubicacion">Ubicación:</label>
+          <input type="text" id="ubicacion"class="form-control" required [(ngModel)]="newFestival.ubicacion" name="ubicacion" #ubicacion="ngModel">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="descripcion">Descripción:</label>
+          <textarea id="descripcion"class="form-control" required [(ngModel)]="newFestival.descripcion" name="descripcion" #descripcion="ngModel"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-success" [disabled]="createFestivalForm.invalid">Crear Festival</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelCreateFestival()">Cancelar</button>
+      </form>
+    </div>
+
+ -->
+
+
+
+
+
+    
+    
+</div>

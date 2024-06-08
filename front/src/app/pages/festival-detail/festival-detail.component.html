@@ -1,0 +1,49 @@
+<div class="container mt-5" *ngIf="festival">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ festival.nombre }}</h5>
+      <p class="card-text">Fecha de inicio: {{ festival.fecha_inicio | date }}</p>
+      <p class="card-text">Fecha de finalización: {{ festival.fecha_finalizacion | date }}</p>
+      <p class="card-text">Ubicación: {{ festival.ubicacion }}</p>
+      <p class="card-text">Descripción: {{ festival.descripcion }}</p>
+    </div>
+    <div *ngIf="videoUrl">
+      <iframe width="560" height="315" [src]="videoUrl | safeUrl" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div *ngIf="isAdmin()" class="mt-3">
+      <button class="btn btn-primary" (click)="startEditing()">Editar Festival</button>
+      <button class="btn btn-danger" (click)="deleteFestival()">Eliminar Festival</button>
+    </div>
+
+      
+     
+    <div *ngIf="isEditing" class="mt-3">
+      <h3>Editar Festival</h3>
+      <form (ngSubmit)="saveChanges()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" [(ngModel)]="updatedFestival.nombre" name="nombre">
+        </div>
+        <div class="mb-3">
+          <label for="fechaInicio" class="form-label">Fecha de inicio</label>
+          <input type="date" class="form-control" id="fechaInicio" [(ngModel)]="updatedFestival.fecha_inicio" name="fechaInicio">
+        </div>
+        <div class="mb-3">
+          <label for="fechaFin" class="form-label">Fecha de finalización</label>
+          <input type="date" class="form-control" id="fechaFin" [(ngModel)]="updatedFestival.fecha_finalizacion" name="fechaFin">
+        </div>
+        <div class="mb-3">
+          <label for="ubicacion" class="form-label">Ubicación</label>
+          <input type="text" class="form-control" id="ubicacion" [(ngModel)]="updatedFestival.ubicacion" name="ubicacion">
+        </div>
+        <div class="mb-3">
+          <label for="descripcion" class="form-label">Descripción</label>
+          <textarea class="form-control" id="descripcion" [(ngModel)]="updatedFestival.descripcion" name="descripcion"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        <button type="button" class="btn btn-secondary" (click)="isEditing = false">Cancelar</button>
+      </form>
+    </div>
+    
+  </div>
+</div>
