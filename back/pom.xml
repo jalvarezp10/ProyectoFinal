@@ -35,7 +35,7 @@
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.33</version> <!-- Añadida la versión del conector de MySQL -->
+			<version>5.7.44</version> <!-- Añadida la versión del conector de MySQL -->
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
