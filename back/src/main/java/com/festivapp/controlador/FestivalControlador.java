@@ -24,7 +24,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://proyecto-final-festivapp.vercel.app")
 public class FestivalControlador {
 
     @Autowired
