@@ -11,7 +11,7 @@ export class RegisterService {
 
   constructor(private http: HttpClient) { }
 
-  private registerUrl = 'http://localhost:8080/api/v1/usuarios'; 
+  private registerUrl = 'https://proyectofinal-3qyo.onrender.com/api/v1/usuarios'; 
 
   register(newUser: User): Observable<User> {
     return this.http.post<User>(this.registerUrl, newUser).pipe(

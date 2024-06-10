@@ -16,7 +16,7 @@ export class LoginService {
     this.loadUserFromLocalStorage();  // Cargar usuario desde localStorage al inicializar el servicio
   }
 
-  public loginUrl = 'http://localhost:8080/api/v1/usuarios';
+  public loginUrl = 'https://proyectofinal-3qyo.onrender.com/api/v1/usuarios';
 
   login(credentials: LoginRequest): Observable<User | null> {
     return this.http.get<User[]>(this.loginUrl).pipe(

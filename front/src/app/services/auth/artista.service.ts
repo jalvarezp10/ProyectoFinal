@@ -8,7 +8,7 @@ import { Artista } from 'src/app/models/artista';
   providedIn: 'root'
 })
 export class ArtistasService {
-  private apiUrl = 'http://localhost:8080/api/v1/artistas';
+  private apiUrl = 'https://proyectofinal-3qyo.onrender.com/api/v1/artistas';
 
   constructor(private http: HttpClient) {}
 

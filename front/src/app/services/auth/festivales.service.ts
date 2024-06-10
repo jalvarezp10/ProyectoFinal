@@ -10,7 +10,7 @@ import { Festival } from '../../models/festivales';
   providedIn: 'root'
 })
 export class FestivalesService {
-  private apiUrl = 'http://localhost:8080/api/v1/festivales';
+  private apiUrl = 'https://proyectofinal-3qyo.onrender.com/api/v1/festivales';
 
   constructor(private http: HttpClient) { }
 
