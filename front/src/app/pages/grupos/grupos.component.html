@@ -13,7 +13,12 @@
       </ng-container>
       
       <ng-container *ngIf="loginService.userData | async as user">
-        <button *ngIf="user.rol === 'admin' && !isCreating" class="btn btn-primary" (click)="crearGrupo()">Crear Grupo</button>
+        <div class="d-flex justify-content-center w-100 mb-4">
+          <button *ngIf="user.rol === 'admin' && !isCreating" class="btn btn-primary" (click)="crearGrupo()">Crear Grupo</button>
+          
+
+        </div>
+        
       </ng-container>
   
       <div *ngIf="isCreating" class="create-grupo-form">
@@ -29,6 +34,7 @@
           
           <button type="submit" class="btn btn-success" [disabled]="createGrupoForm.invalid">Crear Grupo</button>
           <button type="button" class="btn btn-secondary" (click)="cancelCreateGrupo()">Cancelar</button>
+          
         </form>
       </div>
     </div>

@@ -39,7 +39,7 @@ export class FestivalesComponent implements OnInit {
       next: (data) => {
         console.log('Festival creado:', data);
         this.festivales.push(data);
-        this.isCreating = false; // Hide the form after creating
+        this.isCreating = false; 
         this.newFestival = {
           id_festival:NaN,
           nombre: '',
@@ -47,7 +47,7 @@ export class FestivalesComponent implements OnInit {
           fecha_finalizacion: new Date(),
           ubicacion: '',
           descripcion: ''
-        }; // Reset the form
+        }; 
       },
       error: (error) => console.error('Error al crear el festival:', error)
     });

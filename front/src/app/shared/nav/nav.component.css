@@ -74,8 +74,8 @@ body, html {
     background-color: #ff3366; /* Color de fondo */
     border: none; /* Sin borde */
     color: white; /* Color del texto */
-    padding: 10px 20px; /* Relleno */
-    text-align: center; /* Alineación del texto */
+    padding: 20px 20px; /* Relleno */
+     /* Alineación del texto */
     text-decoration: none; /* Sin subrayado */
     display: inline-block; /* Mostrar en línea */
     font-size: 16px; /* Tamaño de la fuente */

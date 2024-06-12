@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GruposService } from 'src/app/services/auth/grupo.service';
 import { Grupo } from '../../models/grupo';
 import { LoginService } from 'src/app/services/auth/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-grupos',
@@ -9,7 +10,7 @@ import { LoginService } from 'src/app/services/auth/login.service';
   styleUrls: ['./grupos.component.css']
 })
 export class GruposComponent implements OnInit {
-  grupos: Grupo[] = [];
+  grupos: any;
   isCreating: boolean = false;
   newGrupo: Grupo = {
     id_grupo: NaN,
@@ -18,7 +19,7 @@ export class GruposComponent implements OnInit {
     
   };
 
-  constructor(private gruposService: GruposService, public loginService: LoginService) { }
+  constructor(private gruposService: GruposService, public loginService: LoginService,private router: Router) { }
 
   ngOnInit(): void {
     this.getGrupos();
@@ -47,6 +48,13 @@ export class GruposComponent implements OnInit {
       },
       error: (error) => console.error('Error al crear el grupo:', error)
     });
+  }
+  deleteGrupo(): void {
+    if (confirm('¿Está seguro de que desea eliminar este grupo?')) {
+      this.gruposService.deleteGrupo(this.grupos.id_grupo).subscribe(() => {
+        this.router.navigate(['/festivales']);
+      });
+    }
   }
 
   cancelCreateGrupo(): void {

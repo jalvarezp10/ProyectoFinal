@@ -13,8 +13,12 @@
     </ng-container>
     
     <ng-container *ngIf="loginService.userData | async as user">
-      <button *ngIf="user.rol === 'admin' && !isCreating" class="btn btn-primary" (click)="crearFestival()">Crear Festival</button>
+      <div class="d-flex justify-content-center w-100 mb-4">
+        <button *ngIf="user.rol === 'admin' && !isCreating" class="btn btn-primary crear-festival-btn" (click)="crearFestival()">Crear Festival</button>
+    
+      </div>
     </ng-container>
+      
 
     <div *ngIf="isCreating" class="create-festival-form">
       <form (ngSubmit)="submitFestival()" #createFestivalForm="ngForm">
@@ -39,7 +43,7 @@
           <textarea id="descripcion"class="form-control" required [(ngModel)]="newFestival.descripcion" name="descripcion" #descripcion="ngModel"></textarea>
         </div>
         
-        <button type="submit" class="btn btn-success" [disabled]="createFestivalForm.invalid">Crear Festival</button>
+        <button type="submit" id="createbutton" class="btn btn-success" [disabled]="createFestivalForm.invalid">Crear Festival</button>
         <button type="button" class="btn btn-secondary" (click)="cancelCreateFestival()">Cancelar</button>
       </form>
     </div>

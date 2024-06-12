@@ -11,8 +11,8 @@
       <iframe width="560" height="315" [src]="videoUrl | safeUrl" frameborder="0" allowfullscreen></iframe>
     </div>
     <div *ngIf="isAdmin()" class="mt-3">
-      <button class="btn btn-primary" (click)="startEditing()">Editar Festival</button>
-      <button class="btn btn-danger" (click)="deleteFestival()">Eliminar Festival</button>
+      <button class="btn btn-primary btn-edit" (click)="startEditing()">Editar Festival</button>
+      <button class="btn btn-danger " (click)="deleteFestival()">Eliminar Festival</button>
     </div>
 
       

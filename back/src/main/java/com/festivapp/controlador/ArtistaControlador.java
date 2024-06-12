@@ -53,7 +53,10 @@ public class ArtistaControlador {
        	Artista artistaActualizado = artistaServicio.createArtista(artista);
    		return ResponseEntity.ok(artistaActualizado);
        }
-       
+    @PostMapping("/artistas")
+   	public Artista guardarArtista(@RequestBody Artista artista) {
+   		return artistaServicio.createArtista(artista);
+   	}
        
        @DeleteMapping("/artistas/{id}")
    	public ResponseEntity<Map<String,Boolean>> eliminarFestival(@PathVariable Long id){
