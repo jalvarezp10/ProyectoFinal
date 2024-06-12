@@ -11,26 +11,27 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   registerError: string = '';
-  
 
-  constructor(private registerService: RegisterService,private router: Router) { }
-  
+  constructor(private registerService: RegisterService, private router: Router) { }
 
   register(registerForm: NgForm): void {
     if (registerForm.valid) {
+      const isAdmin = registerForm.value.isAdmin;  // Obtener el valor del checkbox
+      const role = isAdmin ? 'admin' : 'user';  // Determinar el rol basado en el checkbox
+
       const newUser: User = {
         nombre: registerForm.value.name,
-        apellidos: registerForm.value.apellidos, 
+        apellidos: registerForm.value.apellidos,
         contrasena: registerForm.value.password,
-        direccion: registerForm.value.direccion, 
+        direccion: registerForm.value.direccion,
         email: registerForm.value.email,
-        rol:registerForm.value.role
+        rol: role  // Usar el rol determinado
       };
 
       this.registerService.register(newUser).subscribe(
         () => {
           console.log('Registro exitoso');
-          this.router.navigate(['/home']);// Puedes redirigir al usuario a otra página o mostrar un mensaje de éxito aquí
+          this.router.navigate(['/home']);  // Redirigir al usuario después del registro exitoso
         },
         error => {
           console.error('Error durante el registro:', error);
@@ -40,4 +41,3 @@ export class RegisterComponent {
     }
   }
 }
-
