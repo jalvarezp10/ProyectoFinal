@@ -65,3 +65,6 @@ body, html {
   .navbar{
     height: 50px;
   }
+  img{
+    height: 200px;
+  }
