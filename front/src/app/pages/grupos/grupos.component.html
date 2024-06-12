@@ -1,1 +1,36 @@
-<p>grupos works!</p>
+<div class="container mt-5">
+    <div class="row">
+      <ng-container *ngIf="!isCreating">
+        <div *ngFor="let grupo of grupos" class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">{{ grupo.nombre_grupo }}</h5>
+              <p class="card-text">Número de Participantes: {{ grupo.num_participantes }}</p>
+              <a [routerLink]="[]" class="btn btn-primary">Ver mensajes</a>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      
+      <ng-container *ngIf="loginService.userData | async as user">
+        <button *ngIf="user.rol === 'admin' && !isCreating" class="btn btn-primary" (click)="crearGrupo()">Crear Grupo</button>
+      </ng-container>
+  
+      <div *ngIf="isCreating" class="create-grupo-form">
+        <form (ngSubmit)="submitGrupo()" #createGrupoForm="ngForm">
+          <div class="mb-3">
+            <label for="nombre_grupo" class="form-label">Nombre del Grupo:</label>
+            <input type="text" id="nombre_grupo" class="form-control" required [(ngModel)]="newGrupo.nombre_grupo" name="nombre_grupo" #nombre_grupo="ngModel">
+          </div>
+          <div class="mb-3">
+            <label for="num_participantes" class="form-label">Número de Participantes:</label>
+            <input type="number" id="num_participantes" class="form-control" required [(ngModel)]="newGrupo.num_participantes" name="num_participantes" #num_participantes="ngModel">
+          </div>
+          
+          <button type="submit" class="btn btn-success" [disabled]="createGrupoForm.invalid">Crear Grupo</button>
+          <button type="button" class="btn btn-secondary" (click)="cancelCreateGrupo()">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
